@@ -16,13 +16,16 @@ module FauxCombinator
           tokens << {type: rule[1], value: $1}
           code = code[$1.length..-1]
         else
-          raise LexerException.new(
-            "Unable to parse #{code[0..15]} with the given rules"
-          )
+          error "Unable to parse #{code[0..15]} with the given rules"
         end
       end
       tokens
     end
+
+    private
+      def error(message)
+        raise LexerException.new(message)
+      end
   end
           #code[0..$1.length - 1] = ''
 
