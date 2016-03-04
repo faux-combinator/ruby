@@ -27,7 +27,6 @@ module FauxCombinator
         raise LexerException.new(message)
       end
   end
-          #code[0..$1.length - 1] = ''
 
   class LexerException < Exception
   end
